@@ -1,8 +1,7 @@
 #include <iostream>
-using namespace std;
  
 int main() 
 {
-    cout << "Zmievskay Y.V.";
+    std::cout << "Zmievskaya Y.V. p1" << std::endl;
     return 0;
 }
