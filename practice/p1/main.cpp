@@ -2,6 +2,6 @@
 
 int main()
 {
-	std::cout << "Dubovsky A A P1" << std::endl;
+	std::cout << "Poplov N V P1" << std::endl;
 	return 0;
 }
