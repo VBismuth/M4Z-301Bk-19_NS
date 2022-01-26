@@ -7,3 +7,4 @@ int main(void)
 	print_visit();
 	return 0;
 }	
+Присутствовал 26.01.2022
