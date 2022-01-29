@@ -7,6 +7,7 @@ include_directories(
 set(SRC
 	"./main.cpp"
 	"./src/myfunc.h"
+	"./src/United.cpp"
 )
 
 add_executable(p2 ${SRC})

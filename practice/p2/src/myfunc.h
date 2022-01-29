@@ -1,8 +1,9 @@
 #ifndef MYFUNC_H
 #define MYFUNC_H
 
+template<typename TYPE>
 
-int minE(int a, int b)
+TYPE minE(TYPE a, TYPE b)
 {
     if (b>a)
     {
