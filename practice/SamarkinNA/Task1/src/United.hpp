@@ -5,7 +5,7 @@ class United{
 	public:
 		United();
 		United(int, char, double);
-		void printAll();
+		void printAll(bool newline = false);
 		void setVar(int newInt=0, char newChar=' ', double newDouble=0.);
 		const bool operator==(const United &Other) const;
 		const bool operator<(const United &Other) const;

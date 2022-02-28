@@ -15,9 +15,11 @@ United::United(int myInt, char myChar, double myDouble)
 	m_double = myDouble;
 }
 
-void United::printAll()
+void United::printAll(bool newline)
 {
-	std::cout << "(" << m_int << ", " << m_char << ", " << m_double << ")\n";
+	std::cout << "(" << m_int << ", " << m_char << ", " << m_double << ")";
+	if (newline)
+		std::cout << std::endl;
 }
 
 void United::setVar(int newInt, char newChar, double newDouble)
