@@ -19,7 +19,7 @@ void printArr(const Arr *myArr, int size)
 	}
 	else
 	{
-		std::cout << "Error in printArr(): nullptr" << std::endl;
+		std::cout << "Error in printArr(): got nullptr" << std::endl;
 		exit(-1);
 	}
 }
@@ -29,6 +29,11 @@ void interFunc(const ArrType *original, ArrType *target, int origSize, int targS
 {
 	if (original && target && origSize && targSize)
 	{
+		if (origSize == targSize)
+		{
+			std::cout << "Error in interFunc(): got equal sizes" << std::endl;
+			exit(1);
+		}
 		if (origSize > targSize)
 		{
 			if (targSize == 1)
@@ -58,12 +63,54 @@ void interFunc(const ArrType *original, ArrType *target, int origSize, int targS
 		} //if (origSize > targetSize)
 		else
 		{
-			
+			int iters = (targSize - 2) / (origSize - 2);
+			if (iters <= 1)
+			{
+				int tMiddle = targSize / 2;
+				for (int i = 0; i < tMiddle; i++)
+				{
+					target[i] = original[i];
+					target[targSize - 1 - i] = original[origSize - 1 - i];
+				}
+				target[tMiddle] = (target[tMiddle - 1] + target[tMiddle + 1]) / 2;
+			} //if (iters == 1)
+			else
+			{
+				target[0] = original[0];
+				target[targSize - 1] = original[origSize - 1];
+
+				// Заполняем массив в середине дубликатами
+				for (int i = 1; i < origSize - 1; i++)
+				{
+					for (int j = 0; j < iters; j++)
+						target[(i - 1) * iters + j + 1] = original[i];
+				}
+				for (int k = 1; k < targSize - 2; k++)
+				{
+					if (target[k] < target[k - 1])
+						target[k] = target[k - 1];
+				}
+
+				// "Разгладим" повторы
+				int iMin (1), iMax (targSize - 2);
+				while (iMin < targSize / 2)
+				{
+					target[iMin] = (target[iMin - 1] + target[iMin] + target[iMin + 1]) / 3;
+					if (iMin >= iMax)
+						break;
+					if (target[iMax] == 0)
+						target[iMax] = target[iMax + 1];
+					else
+						target[iMax] = (target[iMax - 1] + target[iMax] + target[iMax + 1]) / 3;
+					iMin++;
+					iMax--;
+				}
+			}
 		}
 	}
 	else
 	{
-		std::cout << "Error in interFunc(): nullptr" << std::endl;
+		std::cout << "Error in interFunc(): got nullptr" << std::endl;
 		exit(-1);
 	}
 }

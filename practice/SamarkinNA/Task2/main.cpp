@@ -2,17 +2,17 @@
 
 int main()
 {
-	const int sizeA = 12;
-	const int sizeB = 5;
+	const int sizeA = 4;
+	const int sizeB = 3;
 
-	int arrA[sizeA] = {0, 2, 3, 4, 5, 6, 7, 9, 10, 12, 14, 17};
+	int arrA[sizeA] = {0, 2, 4, 6};
 	int arrB[sizeB] = {};
 
 	std::cout << "Array A["<< sizeA << "]: ";
 	printArr(arrA, sizeA);
 
 	interFunc(arrA, arrB, sizeA, sizeB);
-	std::cout << "Written array A["<< sizeA << "] to smaller array B[" << sizeB <<"]: ";
+	std::cout << "Written array A["<< sizeA << "] to array B[" << sizeB <<"] with interpolation: ";
 	printArr(arrB, sizeB);
 
 	return 0;
