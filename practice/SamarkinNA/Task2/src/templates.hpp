@@ -93,15 +93,14 @@ void interFunc(const ArrType *original, ArrType *target, int origSize, int targS
 
 				// "Разгладим" повторы
 				int iMin (1), iMax (targSize - 2);
-				while (iMin < targSize / 2)
+				while (iMin < targSize / 2 + 1)
 				{
 					target[iMin] = (target[iMin - 1] + target[iMin] + target[iMin + 1]) / 3;
 					if (iMin >= iMax)
 						break;
 					if (target[iMax] == 0)
 						target[iMax] = target[iMax + 1];
-					else
-						target[iMax] = (target[iMax - 1] + target[iMax] + target[iMax + 1]) / 3;
+					target[iMax] = (target[iMax - 1] + target[iMax] + target[iMax + 1]) / 3;
 					iMin++;
 					iMax--;
 				}

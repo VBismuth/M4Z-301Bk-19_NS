@@ -3,9 +3,9 @@
 int main()
 {
 	const int sizeA = 4;
-	const int sizeB = 3;
+	const int sizeB = 21;
 
-	int arrA[sizeA] = {0, 2, 4, 6};
+	int arrA[sizeA] = {1, 2, 4, 10};
 	int arrB[sizeB] = {};
 
 	std::cout << "Array A["<< sizeA << "]: ";
